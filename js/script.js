@@ -23,7 +23,7 @@ function getNewNumListener() {
               target.append(value);
               target.css({ "background": "#FFEB3B"});
             } else {
-              target.append(value + "<br>");
+              target.append(value);
               target.css({ "background": "#8bc34a"});
             }
 
