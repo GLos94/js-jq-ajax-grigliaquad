@@ -14,14 +14,13 @@ function getNewNumListener() {
       method: 'GET',
       success: function (data, state){
 
-        // var square = $('#15');
         var success = data['success'];
         var value = data['response'];
 
           if (success) {
 
             if (value <= 5) {
-              target.append(value + "<br>");
+              target.append(value);
               target.css({ "background": "#FFEB3B"});
             } else {
               target.append(value + "<br>");
