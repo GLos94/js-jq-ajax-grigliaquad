@@ -1,12 +1,14 @@
-function addNewNumListener() {
-  var btn = $('#number')
-  btn.click(getNewNumListener);
+function addSquareClickListener() {
+  var square = $('.square')
+  square.click(squareClickListener)
 }
 
-function getNewNumListener() {
+function squareClickListener() {
+  var square = $(this);
+  var isClicked = square.hasClass('.clicked')
 
-  var target = $('.square');
-  target.html('');
+
+  if (!isClicked) {
 
     $.ajax({
 
@@ -20,11 +22,12 @@ function getNewNumListener() {
           if (success) {
 
             if (value <= 5) {
-              target.append(value);
-              target.css({ "background": "#FFEB3B"});
+              square.append(value);
+              square.addClass('.clicked');
+              square.css({ "background": "#FFEB3B"});
             } else {
-              target.append(value);
-              target.css({ "background": "#8bc34a"});
+              square.append(value);
+              square.css({ "background": "#8bc34a"});
             }
 
 
@@ -46,6 +49,9 @@ function getNewNumListener() {
 
 
     })
+  }
+
+
 }
 
 
@@ -57,7 +63,7 @@ function getNewNumListener() {
 
 
 function init(){
-  addNewNumListener();
+  addSquareClickListener();
 }
 
 $(document).ready(init);
